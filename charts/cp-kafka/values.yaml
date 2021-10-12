@@ -35,9 +35,9 @@ updateStrategy: RollingUpdate
 # Security Context
 # ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 # for Kafka container
-securityContext: {}
-  #  runAsUser: 1000
-  #  runAsGroup: 1000
+securityContext:
+  runAsUser: 0
+  runAsGroup: 0
 
 ## Kafka Server properties
 ## ref: https://kafka.apache.org/documentation/#configuration
@@ -69,7 +69,7 @@ persistence:
 
   ## The size of the PersistentVolume to allocate to each Kafka Pod in the StatefulSet. For
   ## production servers this number should likely be much larger.
-  size: 1Gi
+  size: 10Gi
 
   ## Kafka data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
